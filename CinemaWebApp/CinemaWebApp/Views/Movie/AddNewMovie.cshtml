@@ -1,0 +1,64 @@
+﻿@model MovieViewModel
+
+<div class="add-new-movie-form shadow-lg  bg-white rounded">
+<form asp-action="AddNewMovie" asp-controller="Movie" method="post">
+    <h1 class="text-light display-4">Add New Movie</h1>
+   
+   <div class="form-inputs-movie ">
+       <div class="form-group mt-3">
+            <label asp-for="YearReleased" class="text-light ml-2">Date Released</label>
+                @{
+                    if (Model.YearReleased == DateTime.MinValue)
+                    {
+                           <input asp-for="YearReleased" type="date" class="form-control form-control-lg w-auto" value="@DateTime.Today.ToString("yyyy/MM/dd")"/>
+                    }else{
+                        <input asp-for="YearReleased" type="date" class="form-control form-control-lg w-auto"/>
+                    }
+                }
+   
+ 
+   </div>
+   <br />
+   <div class="image-name-movie">
+     <div class="form-group">
+       <label asp-for="Image" class="h5 text-light">Image URL:</label>
+       <input asp-for="Image" class="form-control form-control-lg" type="url"/>   
+       <span asp-validation-for="Image" class="text-danger m-5"></span>
+     </div>
+     <div class="form-group">
+       <label asp-for="Title" class="h5 text-light">Title:</label>
+       <input asp-for="Title" class="form-control form-control-lg"/>
+       <span asp-validation-for="Title" class="text-danger m-5"></span>
+     </div>
+     </div>
+     <div class="image-name-movie">
+     <div class="form-group">
+       <label asp-for="Genre" class="h5 text-light">Genre:</label>
+       <input asp-for="Genre" class="form-control form-control-lg"/> 
+       <span asp-validation-for="Genre" class="text-danger m-5"></span>
+     </div>
+  
+    
+     <div class="form-group">
+       <label asp-for="Duration" class="h5 text-light">Duration in minutes:</label>
+       @{
+           if(@Model.Duration != 0){
+           <input asp-for="Duration" type="number" class="form-control form-control-lg" min="1" value="@Model.Duration"/>
+       }else{
+            <input asp-for="Duration" type="number" class="form-control form-control-lg" min="1" value="0"/>
+       }
+       }
+       <span asp-validation-for="Duration" class="text-danger m-5"></span>
+     </div>
+       </div>
+        <div class="form-group desc-movie mt-4">
+           <label asp-for="Description" class="h5 text-light">Description</label>
+           <input asp-for="Description" class="form-control form-control-lg"/>
+        </div>
+
+    </div>
+
+      <button type="submit" class="btn btn-danger mt-5 mx-lg-5">Add</button>
+</form>
+</div>
+

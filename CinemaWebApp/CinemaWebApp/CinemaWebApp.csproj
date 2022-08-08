@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaWebApp.Business\CinemaWebApp.Business.csproj" />
+    <ProjectReference Include="..\CinemaWebApp.DataAccess\CinemaWebApp.DataAccess.csproj" />
+    <ProjectReference Include="..\CinemaWebApp.DomainModels\CinemaWebApp.DomainModels.csproj" />
+    <ProjectReference Include="..\CinemaWebApp.ViewModels\CinemaWebApp.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

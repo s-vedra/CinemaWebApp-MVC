@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaWebApp.DataAccess\CinemaWebApp.DataAccess.csproj" />
+    <ProjectReference Include="..\CinemaWebApp.DomainModels\CinemaWebApp.DomainModels.csproj" />
+    <ProjectReference Include="..\CinemaWebApp.ViewModels\CinemaWebApp.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
