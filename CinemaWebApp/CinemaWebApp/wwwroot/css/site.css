@@ -45,6 +45,9 @@ body {
     .add-snacks-input{
         width:auto !important;
     }
+    .container-carousel {
+        display: none !important;
+    }
 }
 
 
@@ -131,8 +134,7 @@ img {
 
 .image-name-movie {
     display: flex;
-    justify-content: space-around;
-    gap: 2em;
+    gap: 7em;
 }
 .desc-movie {
     display: flex;
@@ -142,7 +144,7 @@ img {
     align-items: center;
 }
 .add-new-movie-form {
-    background-image: url("https://images.unsplash.com/photo-1512204224442-c5ce4b01bda4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-image: url("https://images.unsplash.com/photo-1623197532650-bacb8a68914e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
