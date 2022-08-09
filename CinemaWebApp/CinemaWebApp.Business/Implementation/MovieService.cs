@@ -23,7 +23,7 @@ namespace CinemaWebApp.Business.Implementation
                 Duration = model.Duration,
                 YearReleased = model.YearReleased,
                 Image = model.Image,
-                Description = model.Description,
+                Description = model.Description == null ? "" : model.Description,
             };
             _movieRepository.Add(movie);
         }
