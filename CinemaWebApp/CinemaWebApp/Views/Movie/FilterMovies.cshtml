@@ -1,5 +1,7 @@
 ﻿@model List<MovieViewModel>
 
+
+
       <div class="form-search">
        <form asp-action="SearchMovie" asp-controller="Movie">
             <div class="form-group search-option">
@@ -9,10 +11,7 @@
        </form>
    </div>
    <h1>Movies:</h1>
-
-
-
-      <ul class="nav nav-movies flex-row justify-content-center ">
+   <ul class="nav nav-movies flex-row justify-content-center ">
   <li class="nav-item">
     <a asp-action="FilterMovies" asp-controller="Movie" class="nav-link text-muted filter-movies" asp-route-id="Action">Action</a>
   </li>
@@ -26,14 +25,12 @@
     <a asp-action="FilterMovies" asp-controller="Movie" class="nav-link text-muted filter-movies" asp-route-id="Adventure">Adventure</a>
   </li>
 </ul>
-
-
-<div class="index-movies justify-content-evenly">
+<div class="index-movies">
     @foreach (var item in Model)
     {
         <div class="card mt-5 shadow-lg bg-white rounded" style="width: 18rem;">
               <img class="card-img-top" src="@item.Image" alt="Card image cap">
-              <div class="card-body">
+              <div class="card-body flex align-content-start">
                       <h4 class="text-muted">@item.Title</h4>
                   <p class="card-text">@item.Genre</p>
                   <p class="card-text">Duration: @item.Duration minutes</p>
@@ -46,4 +43,4 @@
         </div>
     }
   </div>
-<a asp-action="AddNewMovie" asp-controller="Movie" class="btn btn-primary float-end mb-3 mt-4">Add New Movie</a>
+<a asp-action="AddNewMovie" asp-controller="Movie" class="btn btn-outline-danger float-end mb-3 mt-4">Add New Movie</a>

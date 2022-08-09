@@ -288,3 +288,34 @@ img {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+filter-movies, filter-movies:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-movies li {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+    margin-right: 10px;
+}
+
+.nav-movies li:last-child {
+    margin-right: 0;
+}
+
+.nav-movies li:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+
+.nav-movies li:hover:after {
+    width: 100%;
+    background: red;
+}

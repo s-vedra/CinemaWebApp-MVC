@@ -63,5 +63,9 @@ namespace CinemaWebApp.Controllers
                 return View(_movieService.GetMovies().Where(x => x.Title.ToLower().Contains(id.ToLower())).ToList());
             }
         }
+        public IActionResult FilterMovies(string id)
+        {
+            return View(_movieService.GetMovies().Where(x => x.Genre.ToLower().Contains(id.ToLower())).ToList());
+        }
     }
 }
