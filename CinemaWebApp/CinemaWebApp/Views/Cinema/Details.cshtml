@@ -1,5 +1,8 @@
 ﻿@model MovieProgramViewModel
 
+
+ 
+
     <div class="cards-style">
       <div class="image">
         <img class="card-img-top" src="@Model.CinemaHall.Movie.Image">
@@ -12,16 +15,16 @@
         <p class="card-text">@Model.CinemaHall.Movie.Description</p>
         <h4>Premiers on:</h4>
         @{
-            <p>
-                 @foreach (var item in ViewBag.MoviePrograms)
+                <p>
+                     @foreach (var item in ViewBag.MoviePrograms)
                  {
                         if(Model.CinemaHall.Movie.Title == item.CinemaHall.Movie.Title)
                         {
-                            @item.Date.ToString("dddd, dd MMMM yyyy") <br />
+                                @item.Date.ToString("dddd, dd MMMM yyyy") <br />
                         }
                     
                  }
-            </p>
+                </p>
         }
            
        <div class="buttons-cinema">
@@ -52,8 +55,9 @@
                         </div>
                    
                     }
-                        </div>    
-                        
+                        </div>   
+
+                          
                 </div>
                  <div class="item">
                     <div class="carousel-content">

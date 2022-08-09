@@ -4,7 +4,6 @@
      <input type="hidden" asp-for="CinemaHallId" value="@Model.CinemaHallId"/>
      <input type="hidden" asp-for="Id" value="@Model.Id"/>
      <div class="forms-input">
-   <div class="form-control-lg">
     <div class="form-group">
     <label asp-for="Date" class="text-light">Enter Date</label>
                     @{
@@ -47,14 +46,12 @@
     <span asp-validation-for="Price" class="text-danger"></span>
     </div>
     </div>
-      
       </div>
-      </div>
-      <button type="submit" class="btn btn-danger mx-lg-5">Save</button>
+      <button type="submit" class="btn btn-danger float-start mx-4">Save</button>
         @{
             if (@Model.ChangeCinemaHall)
             {
-                <a asp-action="AddCinemaHallModel" asp-controller="Cinema" asp-route-id="@Model.CinemaHallId" class="btn btn-primary">Edit Cinema Hall</a>
+                <a asp-action="AddCinemaHallModel" asp-controller="Cinema" asp-route-id="@Model.CinemaHallId" class="btn btn-primary edit-cinema-hall">Edit Cinema Hall</a>
             }
         }
 </form>

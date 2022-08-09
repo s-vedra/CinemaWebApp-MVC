@@ -1,7 +1,7 @@
 ﻿@model CinemaHallViewModel
 <div class="form-new-cinema-hall border border-dark shadow-lg bg-white rounded ">
 <form asp-action="AddCinemaHallModel" asp-controller="Cinema" method="post">
-     <div class="form-drop-down">
+     <div class="form-drop-down flex-sm-wrap">
     <div class="form-control-lg">
    <label class="text-light" asp-for="MovieId">Select Movie: </label>
 
@@ -21,6 +21,9 @@
     </div>  
      
       </div>
-      <button type="submit" class="btn btn-danger mt-5 mx-lg-3">Next</button>
+      <button type="submit" class="btn btn-danger float-end">Next</button>
 </form>
 </div>
+
+  
+

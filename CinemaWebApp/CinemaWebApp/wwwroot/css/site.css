@@ -16,6 +16,37 @@ html {
 body {
     background-color: #f7f7f7;
 }
+@media (max-width : 760px) {
+
+    .form-drop-down {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .form-new-cinema-hall button{
+        margin-right:1em;
+    }
+    .form-new-program button {
+        margin-top:-1em;
+    }
+    .image-name-movie {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:2em;
+    }
+    .desc-movie textarea{
+        width:20em;
+    }
+    .edit-cinema-hall {
+        float: right;
+        margin-top: -1em;
+    }
+    .add-snacks-input{
+        width:auto !important;
+    }
+}
+
 
 .cards {
     display: flex;
@@ -32,7 +63,10 @@ body {
     justify-content: space-between;
     flex-direction: column;
     align-content: center;
+   
 }
+
+
 img {
     height: 20em;
 }
@@ -56,6 +90,7 @@ img {
     display:flex;
     gap:2em;
 }
+
 .form-new-cinema-hall {
     display: flex;
     width: auto;
@@ -68,27 +103,36 @@ img {
 .form-control-lg{
     width:20em;
 }
-.forms-price-time{
-    display:flex;
-    width:50em;
-    gap:2em;
-    margin-top:2em;
+.forms-price-time {
+    display: flex;
+    gap: 2em;
+    margin-top: 2em;
+    flex-wrap: wrap;
 }
-.forms-input{
-    display:flex;
-    padding:2em;
+.forms-input {
+    display: flex;
+    padding: 2em;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
+
 .form-inputs-movie {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-left:3em;
-    gap:0.2em;
-
+    align-items: center;
 }
+.date-add-new-movie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .image-name-movie {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 2em;
 }
 .desc-movie {
     display: flex;
@@ -171,6 +215,7 @@ img {
     display: flex;
     text-align: center;
 }
+
 .text-image {
     display: flex;
     flex-direction: column;
@@ -216,9 +261,7 @@ img {
 .products{
     width:45em;
 }
-.slogan{
-    width:30em;
-}
+
 .book-movie {
     margin: 10px;
     padding: 15px 30px;
