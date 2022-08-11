@@ -19,7 +19,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Duration = table.Column<int>(type: "int", nullable: false),
                     YearReleased = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -42,15 +42,18 @@ namespace CinemaWebApp.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SnackOrder",
+                name: "Snack",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SnackOrder", x => x.Id);
+                    table.PrimaryKey("PK_Snack", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,28 +80,6 @@ namespace CinemaWebApp.DataAccess.Migrations
                         principalTable: "Size",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Snack",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SnackQuantity = table.Column<int>(type: "int", nullable: false),
-                    SnackOrderId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Snack", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Snack_SnackOrder_SnackOrderId",
-                        column: x => x.SnackOrderId,
-                        principalTable: "SnackOrder",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -133,7 +114,6 @@ namespace CinemaWebApp.DataAccess.Migrations
                     MovieProgramId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SnackOrderId = table.Column<int>(type: "int", nullable: false),
                     TicketQuantity = table.Column<int>(type: "int", nullable: false),
                     FullPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     SnackPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -148,10 +128,31 @@ namespace CinemaWebApp.DataAccess.Migrations
                         principalTable: "MovieProgram",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SnackOrder",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SnackId = table.Column<int>(type: "int", nullable: false),
+                    SnackQuantity = table.Column<int>(type: "int", nullable: false),
+                    Select = table.Column<bool>(type: "bit", nullable: false),
+                    ReservationId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SnackOrder", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reservation_SnackOrder_SnackOrderId",
-                        column: x => x.SnackOrderId,
-                        principalTable: "SnackOrder",
+                        name: "FK_SnackOrder_Reservation_ReservationId",
+                        column: x => x.ReservationId,
+                        principalTable: "Reservation",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SnackOrder_Snack_SnackId",
+                        column: x => x.SnackId,
+                        principalTable: "Snack",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -188,14 +189,14 @@ namespace CinemaWebApp.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Snack",
-                columns: new[] { "Id", "Image", "Name", "Price", "SnackOrderId", "SnackQuantity" },
+                columns: new[] { "Id", "Image", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "https://images.unsplash.com/photo-1548867688-231911e4ba3c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80", "XL Popcorn", 150m, null, 0 },
-                    { 2, "https://images.unsplash.com/photo-1589656613566-eab25964fb6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80", "Nacho Crunch", 200m, null, 0 },
-                    { 3, "https://images.unsplash.com/photo-1602296750425-f025b045f355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "Sweet Taste", 250m, null, 0 },
-                    { 4, "https://images.unsplash.com/photo-1589656613566-eab25964fb6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80", "XL Nacho Crunch", 250m, null, 0 },
-                    { 5, "https://i.pinimg.com/736x/6b/bb/f0/6bbbf096b688ba08ad7eba24d8e083b5.jpg", "Slushie Mountain", 200m, null, 0 }
+                    { 1, "https://images.unsplash.com/photo-1572177191856-3cde618dee1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80", "XL Popcorn", 150m },
+                    { 2, "https://images.unsplash.com/photo-1589656613566-eab25964fb6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80", "Nacho Crunch", 200m },
+                    { 3, "https://images.unsplash.com/photo-1602296750425-f025b045f355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", "Sweet Taste", 250m },
+                    { 4, "https://images.unsplash.com/photo-1589656613566-eab25964fb6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80", "XL Nacho Crunch", 250m },
+                    { 5, "https://i.pinimg.com/736x/6b/bb/f0/6bbbf096b688ba08ad7eba24d8e083b5.jpg", "Slushie Mountain", 200m }
                 });
 
             migrationBuilder.InsertData(
@@ -221,18 +222,18 @@ namespace CinemaWebApp.DataAccess.Migrations
                 columns: new[] { "Id", "CinemaHallId", "Date", "EndTime", "Price", "StartTime" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7961), "23:05", 250m, "20:00" },
-                    { 2, 2, new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7988), "22:30", 250m, "20:00" },
-                    { 3, 3, new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7990), "19:30", 250m, "17:00" },
-                    { 4, 4, new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7992), "22:35", 250m, "20:20" },
-                    { 5, 5, new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7994), "20:30", 250m, "19:00" },
-                    { 6, 6, new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7997), "22:30", 250m, "20:45" },
-                    { 7, 8, new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8000), "23:00", 250m, "20:00" },
-                    { 8, 2, new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8002), "22:30", 250m, "20:00" },
-                    { 9, 7, new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8031), "22:05", 250m, "20:00" },
-                    { 10, 9, new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8033), "20:30", 250m, "19:00" },
-                    { 11, 10, new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8036), "22:30", 250m, "20:45" },
-                    { 12, 11, new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8038), "22:35", 250m, "20:20" }
+                    { 1, 1, new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2943), "23:05", 250m, "20:00" },
+                    { 2, 2, new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2971), "22:30", 250m, "20:00" },
+                    { 3, 3, new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2973), "19:30", 250m, "17:00" },
+                    { 4, 4, new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2975), "22:35", 250m, "20:20" },
+                    { 5, 5, new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2977), "20:30", 250m, "19:00" },
+                    { 6, 6, new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2980), "22:30", 250m, "20:45" },
+                    { 7, 8, new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2982), "23:00", 250m, "20:00" },
+                    { 8, 2, new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2984), "22:30", 250m, "20:00" },
+                    { 9, 7, new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2986), "22:05", 250m, "20:00" },
+                    { 10, 9, new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2989), "20:30", 250m, "19:00" },
+                    { 11, 10, new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2991), "22:30", 250m, "20:45" },
+                    { 12, 11, new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2993), "22:35", 250m, "20:20" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -256,18 +257,21 @@ namespace CinemaWebApp.DataAccess.Migrations
                 column: "MovieProgramId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservation_SnackOrderId",
-                table: "Reservation",
-                column: "SnackOrderId");
+                name: "IX_SnackOrder_ReservationId",
+                table: "SnackOrder",
+                column: "ReservationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Snack_SnackOrderId",
-                table: "Snack",
-                column: "SnackOrderId");
+                name: "IX_SnackOrder_SnackId",
+                table: "SnackOrder",
+                column: "SnackId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "SnackOrder");
+
             migrationBuilder.DropTable(
                 name: "Reservation");
 
@@ -276,9 +280,6 @@ namespace CinemaWebApp.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "MovieProgram");
-
-            migrationBuilder.DropTable(
-                name: "SnackOrder");
 
             migrationBuilder.DropTable(
                 name: "CinemaHall");

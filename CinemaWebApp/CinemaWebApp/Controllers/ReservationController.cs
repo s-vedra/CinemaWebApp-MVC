@@ -27,7 +27,7 @@ namespace CinemaWebApp.Controllers
         {
             List<SnackViewModel> snacks = _snackService.GetSnackViewModels();
             ViewBag.Snacks = snacks;
-            model.Snacks = null;
+            model.SnackOrders = null;
             return View(model);
         }
         [HttpPost]

@@ -18,7 +18,6 @@ namespace CinemaWebApp.Business.Mappers
                 Name = snack.Name,
                 Price = snack.Price,
                 Image = snack.Image,
-                SnackQuantity = snack.SnackQuantity,
               
             };
         }

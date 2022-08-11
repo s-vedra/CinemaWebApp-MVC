@@ -25,12 +25,12 @@ namespace CinemaWebApp.DataAccess.Repository
 
         public List<SnackOrder> GetAll()
         {
-            return _dbContext.SnackOrders.Include(x => x.Snacks).ToList();
+            return _dbContext.SnackOrders.Include(x => x.Snack).ToList();
         }
 
         public SnackOrder GetEntity(int id)
         {
-            return _dbContext.SnackOrders.Include(x => x.Snacks).SingleOrDefault(x => x.Id == id);
+            return _dbContext.SnackOrders.Include(x => x.Snack).SingleOrDefault(x => x.Id == id);
         }
 
         public void Update(SnackOrder entity)

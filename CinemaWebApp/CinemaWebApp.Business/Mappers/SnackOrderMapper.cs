@@ -15,7 +15,11 @@ namespace CinemaWebApp.Business.Mappers
             return new SnackOrderViewModel()
             {   
                 Id = snackOrder.Id,
-                Snacks = snackOrder.Snacks.Select(x => x.ToViewModel()).ToList()
+                Snack = snackOrder.Snack.ToViewModel(),
+                Select = snackOrder.Select,
+                SnackQuantity = snackOrder.SnackQuantity,
+                SnackId = snackOrder.SnackId,
+                Price = snackOrder.Price
             };
         }
     }

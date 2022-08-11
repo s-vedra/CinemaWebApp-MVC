@@ -6,9 +6,7 @@ namespace CinemaWebApp.ViewModels
     public class ReservationViewModel
     {
         public int Id { get; set; }
-        public List<SnackViewModel>? Snacks { get; set; }
         public int SnackOrderId { get; set; }
-        public SnackOrderViewModel? SnackOrder { get; set; }
         [DisplayName("Full Price")]
         public decimal FullPrice { get; set; }
         public int MovieProgramId { get; set; }
@@ -21,6 +19,7 @@ namespace CinemaWebApp.ViewModels
         public int TicketQuantity { get; set; }
         public decimal SnackPrice { get; set; }
         public decimal TicketPrice { get; set; }
+        public List<SnackOrderViewModel>? SnackOrders { get; set; }
 
     }
 }

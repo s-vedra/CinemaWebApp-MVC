@@ -3,14 +3,18 @@
     public class SnackOrder
     {
         public int Id { get; set; }
-        public ICollection<Snack> Snacks { get; set; }
+        public int SnackId { get; set; }
+        public Snack Snack { get; set; }
+        public int SnackQuantity { get; set; }
+        public bool Select { get; set; }
+        public decimal Price { get; set; }
         public SnackOrder()
         {
 
         }
-        public SnackOrder(ICollection<Snack> snacks)
+        public SnackOrder(int snackId)
         {
-            Snacks = snacks;
+            SnackId = snackId;
         }
     }
 }

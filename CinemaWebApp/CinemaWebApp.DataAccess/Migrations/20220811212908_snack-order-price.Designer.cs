@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaWebApp.DataAccess.Migrations
 {
     [DbContext(typeof(CinemaAppDbContext))]
-    [Migration("20220807132748_init")]
-    partial class init
+    [Migration("20220811212908_snack-order-price")]
+    partial class snackorderprice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -124,7 +124,6 @@ namespace CinemaWebApp.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Duration")
@@ -268,7 +267,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 1,
                             CinemaHallId = 1,
-                            Date = new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7961),
+                            Date = new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(6993),
                             EndTime = "23:05",
                             Price = 250m,
                             StartTime = "20:00"
@@ -277,7 +276,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 2,
                             CinemaHallId = 2,
-                            Date = new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7988),
+                            Date = new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7025),
                             EndTime = "22:30",
                             Price = 250m,
                             StartTime = "20:00"
@@ -286,7 +285,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 3,
                             CinemaHallId = 3,
-                            Date = new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7990),
+                            Date = new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7027),
                             EndTime = "19:30",
                             Price = 250m,
                             StartTime = "17:00"
@@ -295,7 +294,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 4,
                             CinemaHallId = 4,
-                            Date = new DateTime(2022, 8, 7, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7992),
+                            Date = new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7029),
                             EndTime = "22:35",
                             Price = 250m,
                             StartTime = "20:20"
@@ -304,7 +303,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 5,
                             CinemaHallId = 5,
-                            Date = new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7994),
+                            Date = new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7031),
                             EndTime = "20:30",
                             Price = 250m,
                             StartTime = "19:00"
@@ -313,7 +312,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 6,
                             CinemaHallId = 6,
-                            Date = new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(7997),
+                            Date = new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7034),
                             EndTime = "22:30",
                             Price = 250m,
                             StartTime = "20:45"
@@ -322,7 +321,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 7,
                             CinemaHallId = 8,
-                            Date = new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8000),
+                            Date = new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7037),
                             EndTime = "23:00",
                             Price = 250m,
                             StartTime = "20:00"
@@ -331,7 +330,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 8,
                             CinemaHallId = 2,
-                            Date = new DateTime(2022, 8, 8, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8002),
+                            Date = new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7039),
                             EndTime = "22:30",
                             Price = 250m,
                             StartTime = "20:00"
@@ -340,7 +339,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 9,
                             CinemaHallId = 7,
-                            Date = new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8031),
+                            Date = new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7041),
                             EndTime = "22:05",
                             Price = 250m,
                             StartTime = "20:00"
@@ -349,7 +348,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 10,
                             CinemaHallId = 9,
-                            Date = new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8033),
+                            Date = new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7043),
                             EndTime = "20:30",
                             Price = 250m,
                             StartTime = "19:00"
@@ -358,7 +357,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 11,
                             CinemaHallId = 10,
-                            Date = new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8036),
+                            Date = new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7045),
                             EndTime = "22:30",
                             Price = 250m,
                             StartTime = "20:45"
@@ -367,7 +366,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                         {
                             Id = 12,
                             CinemaHallId = 11,
-                            Date = new DateTime(2022, 8, 9, 15, 27, 48, 185, DateTimeKind.Local).AddTicks(8038),
+                            Date = new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7048),
                             EndTime = "22:35",
                             Price = 250m,
                             StartTime = "20:20"
@@ -396,9 +395,6 @@ namespace CinemaWebApp.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SnackOrderId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("SnackPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -411,8 +407,6 @@ namespace CinemaWebApp.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MovieProgramId");
-
-                    b.HasIndex("SnackOrderId");
 
                     b.ToTable("Reservation", (string)null);
                 });
@@ -506,15 +500,7 @@ namespace CinemaWebApp.DataAccess.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("SnackOrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SnackQuantity")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("SnackOrderId");
 
                     b.ToTable("Snack", (string)null);
 
@@ -522,42 +508,37 @@ namespace CinemaWebApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "https://images.unsplash.com/photo-1548867688-231911e4ba3c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                            Image = "https://images.unsplash.com/photo-1572177191856-3cde618dee1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80",
                             Name = "XL Popcorn",
-                            Price = 150m,
-                            SnackQuantity = 0
+                            Price = 150m
                         },
                         new
                         {
                             Id = 2,
                             Image = "https://images.unsplash.com/photo-1589656613566-eab25964fb6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
                             Name = "Nacho Crunch",
-                            Price = 200m,
-                            SnackQuantity = 0
+                            Price = 200m
                         },
                         new
                         {
                             Id = 3,
                             Image = "https://images.unsplash.com/photo-1602296750425-f025b045f355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
                             Name = "Sweet Taste",
-                            Price = 250m,
-                            SnackQuantity = 0
+                            Price = 250m
                         },
                         new
                         {
                             Id = 4,
                             Image = "https://images.unsplash.com/photo-1589656613566-eab25964fb6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
                             Name = "XL Nacho Crunch",
-                            Price = 250m,
-                            SnackQuantity = 0
+                            Price = 250m
                         },
                         new
                         {
                             Id = 5,
                             Image = "https://i.pinimg.com/736x/6b/bb/f0/6bbbf096b688ba08ad7eba24d8e083b5.jpg",
                             Name = "Slushie Mountain",
-                            Price = 200m,
-                            SnackQuantity = 0
+                            Price = 200m
                         });
                 });
 
@@ -569,7 +550,26 @@ namespace CinemaWebApp.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ReservationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Select")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SnackId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SnackQuantity")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ReservationId");
+
+                    b.HasIndex("SnackId");
 
                     b.ToTable("SnackOrder", (string)null);
                 });
@@ -612,27 +612,27 @@ namespace CinemaWebApp.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CinemaWebApp.DomainModels.SnackOrder", "SnackOrder")
-                        .WithMany()
-                        .HasForeignKey("SnackOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("MovieProgram");
-
-                    b.Navigation("SnackOrder");
-                });
-
-            modelBuilder.Entity("CinemaWebApp.DomainModels.Snack", b =>
-                {
-                    b.HasOne("CinemaWebApp.DomainModels.SnackOrder", null)
-                        .WithMany("Snacks")
-                        .HasForeignKey("SnackOrderId");
                 });
 
             modelBuilder.Entity("CinemaWebApp.DomainModels.SnackOrder", b =>
                 {
-                    b.Navigation("Snacks");
+                    b.HasOne("CinemaWebApp.DomainModels.Reservation", null)
+                        .WithMany("SnackOrders")
+                        .HasForeignKey("ReservationId");
+
+                    b.HasOne("CinemaWebApp.DomainModels.Snack", "Snack")
+                        .WithMany()
+                        .HasForeignKey("SnackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Snack");
+                });
+
+            modelBuilder.Entity("CinemaWebApp.DomainModels.Reservation", b =>
+                {
+                    b.Navigation("SnackOrders");
                 });
 #pragma warning restore 612, 618
         }

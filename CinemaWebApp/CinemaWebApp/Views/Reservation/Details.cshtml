@@ -31,12 +31,12 @@
       <td>@Model.TicketQuantity</td>
       <td>@Model.TicketPrice.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</td>
     </tr>
-                @foreach (var item in Model.SnackOrder.Snacks)
+                @foreach (var item in Model.SnackOrders)
                 {
                     <tr>
-                      <td scope="row">@item.Name</td>
+                      <td scope="row">@item.Snack.Name</td>
                       <td>@item.SnackQuantity</td>
-                      <td>@Model.SnackPrice.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</td>
+                      <td>@item.Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</td>
                     </tr>
                 }        
   </tbody>

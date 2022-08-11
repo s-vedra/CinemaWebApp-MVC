@@ -34,15 +34,15 @@
             {         <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 15rem;">
                         <div class="card-body">
                             <div class="snack">
-                            <input type="hidden" asp-for="@Model.Snacks[i].Id" value="@ViewBag.Snacks[i].Id" />
+                            <input type="hidden" asp-for="@Model.SnackOrders[i].Snack.Id" value="@ViewBag.Snacks[i].Id" />
                                 <div class="snacks-title">
                                  <h6 class="text-danger">@ViewBag.Snacks[i].Name <br/> @ViewBag.Snacks[i].Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</h6>
-                                 <input type="checkbox" asp-for="@Model.Snacks[i].Select" class="mb-3" value="true"/>
+                                 <input type="checkbox" asp-for="@Model.SnackOrders[i].Select" class="mb-3" value="true"/>
                                 </div>
                               <div class="form-group">
                                   <br />
                                   <h6 class="text-danger">Quantity: <span class="snack-value text-danger float-end"></span></h6>
-                                  <input type="range" asp-for="@Model.Snacks[i].SnackQuantity" min="1" max="5" value="1" class="myslider w-100 snack-sliderRange">
+                                  <input type="range" asp-for="@Model.SnackOrders[i].SnackQuantity" min="1" max="5" value="1" class="myslider w-100 snack-sliderRange">
                              </div>
                         
                               <div class="image-checkbox">

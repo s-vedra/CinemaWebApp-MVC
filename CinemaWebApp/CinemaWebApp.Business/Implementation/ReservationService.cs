@@ -26,31 +26,39 @@ namespace CinemaWebApp.Business.Implementation
             Reservation reservation = new Reservation();
             reservation.Name = model.Name;
             reservation.MovieProgramId = model.MovieProgramId;
-            reservation.SnackOrderId = SnackOrder(model.Snacks.Where(x => x.Select).ToList());
-            reservation.SnackPrice = GetSnackPrice(reservation.SnackOrderId);
+            reservation.SnackOrders = SnackOrder(model.SnackOrders.Where(x => x.Select).ToList());
+            reservation.SnackPrice = GetSnackPrice(reservation.SnackOrders.ToList());
             reservation.LastName = model.LastName;
             reservation.TicketQuantity = model.TicketQuantity;
             reservation.TicketPrice = _movieProgramRepository.GetEntity(model.MovieProgramId).Price * reservation.TicketQuantity;
             reservation.FullPrice = reservation.SnackPrice + reservation.TicketPrice;
             _reservationRepository.Add(reservation);
         }
-        private int SnackOrder(List<SnackViewModel> snacks)
+        private List<SnackOrder> SnackOrder(List<SnackOrderViewModel> snacks)
         {
-            SnackOrder snackOrder = new SnackOrder();
+            List<SnackOrder> snackOrders = new List<SnackOrder>();
+          
             foreach (var item in snacks)
             {
-                Snack snack = _snackRepository.GetEntity(item.Id);
-                snack.SnackQuantity = item.SnackQuantity;
-                snackOrder.Snacks = new List<Snack>();
-                snackOrder.Snacks.Add(snack);
+                SnackOrder snackOrder = new SnackOrder();
+                Snack snack = _snackRepository.GetEntity(item.Snack.Id);
+                snackOrder.SnackQuantity = item.SnackQuantity;
+                snackOrder.Price = snackOrder.SnackQuantity * snack.Price;
+                snackOrder.Snack = snack;
+                snackOrders.Add(snackOrder);
+                _snackOrderRepository.Add(snackOrder);
             }
-            _snackOrderRepository.Add(snackOrder);
-            return snackOrder.Id;
+           
+            return snackOrders;
         }
-        private decimal GetSnackPrice(int SnackOrderId)
+        private decimal GetSnackPrice(List<SnackOrder> snackOrders)
         {
-            SnackOrder snackOrder = _snackOrderRepository.GetEntity(SnackOrderId);
-            return snackOrder.Snacks.Select(x => x.Price).Sum() * snackOrder.Snacks.Select(x => x.SnackQuantity).Sum();
+            decimal price = 0;
+            foreach (var item in snackOrders)
+            {
+                price += item.Snack.Price * item.SnackQuantity;
+            }
+            return price;
         }
         public void Delete(ReservationViewModel model)
         {

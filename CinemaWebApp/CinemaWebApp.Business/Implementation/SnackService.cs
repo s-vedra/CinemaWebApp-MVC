@@ -22,7 +22,6 @@ namespace CinemaWebApp.Business.Implementation
                 Image = model.Image,
                 Name = model.Name,
                 Price = model.Price,
-                SnackQuantity = model.SnackQuantity
             };
             _snackRepository.Add(snack);
         }
@@ -49,7 +48,6 @@ namespace CinemaWebApp.Business.Implementation
             snack.Image = model.Image;
             snack.Name = model.Name;
             snack.Price = model.Price;
-            snack.SnackQuantity = model.SnackQuantity;
             _snackRepository.Update(snack);
         }
     }

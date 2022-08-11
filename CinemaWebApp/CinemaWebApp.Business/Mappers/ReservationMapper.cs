@@ -23,8 +23,7 @@ namespace CinemaWebApp.Business.Mappers
                 SnackPrice = reservation.SnackPrice,
                 MovieProgram = reservation.MovieProgram.ToViewModel(),
                 TicketPrice = reservation.TicketPrice,
-                SnackOrderId = reservation.SnackOrderId,
-                SnackOrder = reservation.SnackOrder.ToViewModel()
+                SnackOrders = reservation.SnackOrders.Select(x => x.ToViewModel()).ToList()
             };
         }
     }

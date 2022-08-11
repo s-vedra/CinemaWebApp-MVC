@@ -7,8 +7,7 @@
         public int MovieProgramId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public int SnackOrderId { get; set; }
-        public SnackOrder SnackOrder { get; set; }
+        public ICollection<SnackOrder> SnackOrders { get; set; }
         public int TicketQuantity { get; set; }
         public decimal FullPrice { get; set; }
         public decimal SnackPrice { get; set; }
@@ -18,7 +17,7 @@
         {
 
         }
-        public Reservation(int movieProgramId, string name, string lastName, decimal fullPrice, int id, int ticketQuantity, int snackOrderId)
+        public Reservation(int movieProgramId, string name, string lastName, decimal fullPrice, int id, int ticketQuantity, ICollection<SnackOrder> snackOrders)
         {
             MovieProgramId = movieProgramId;
             Name = name;
@@ -26,7 +25,7 @@
             FullPrice = fullPrice;
             Id = id;
             TicketQuantity = ticketQuantity;
-            SnackOrderId = snackOrderId;
+            SnackOrders = snackOrders;
         }
     }
 }

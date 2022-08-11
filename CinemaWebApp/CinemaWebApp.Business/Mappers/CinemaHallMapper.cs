@@ -20,7 +20,6 @@ namespace CinemaWebApp.Business.Mappers
                 Movie = cinemaHall.Movie.ToViewModel(),
                 Size = cinemaHall.Size.ToViewModel(),
                 SizeId = cinemaHall.SizeId
-                //Size = StorageDB.Sizes.FirstOrDefault(x => x.Id == cinemaHall.SizeId).ToViewModel()
             };
         }
     }

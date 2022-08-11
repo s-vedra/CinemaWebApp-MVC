@@ -25,7 +25,7 @@ namespace CinemaWebApp.DataAccess.Repository
 
         public List<Reservation> GetAll()
         {
-            return _dbContext.Reservations.Include(x => x.SnackOrder).ThenInclude(x => x.Snacks)
+            return _dbContext.Reservations.Include(x => x.SnackOrders).ThenInclude(x => x.Snack)
                 .Include(x => x.MovieProgram)
                 .ThenInclude(x => x.CinemaHall)
                 .ThenInclude(x => x.Movie)
@@ -37,7 +37,7 @@ namespace CinemaWebApp.DataAccess.Repository
         public Reservation GetEntity(int id)
         {
             return _dbContext.Reservations
-                .Include(x => x.SnackOrder).ThenInclude(x => x.Snacks)
+                .Include(x => x.SnackOrders).ThenInclude(x => x.Snack)
                 .Include(x => x.MovieProgram)
                 .ThenInclude(x => x.CinemaHall)
                 .ThenInclude(x => x.Movie)

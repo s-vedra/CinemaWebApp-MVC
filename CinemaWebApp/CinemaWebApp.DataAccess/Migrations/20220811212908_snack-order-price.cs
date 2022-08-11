@@ -5,194 +5,191 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CinemaWebApp.DataAccess.Migrations
 {
-    public partial class newpic : Migration
+    public partial class snackorderprice : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<decimal>(
+                name: "Price",
+                table: "SnackOrder",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
+
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(57));
+                value: new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(6993));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(88));
+                value: new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7025));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(91));
+                value: new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7027));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(93));
+                value: new DateTime(2022, 8, 11, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7029));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(95));
+                value: new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7031));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(98));
+                value: new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7034));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(100));
+                value: new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7037));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(103));
+                value: new DateTime(2022, 8, 12, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7039));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 9,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(105));
+                value: new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7041));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 10,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(107));
+                value: new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7043));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 11,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(110));
+                value: new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7045));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 12,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 32, 49, 974, DateTimeKind.Local).AddTicks(112));
-
-            migrationBuilder.UpdateData(
-                table: "Snack",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Image",
-                value: "https://images.unsplash.com/photo-1572177191856-3cde618dee1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80");
+                value: new DateTime(2022, 8, 13, 23, 29, 8, 302, DateTimeKind.Local).AddTicks(7048));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "Price",
+                table: "SnackOrder");
+
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6834));
+                value: new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2943));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6869));
+                value: new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2971));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6872));
+                value: new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2973));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "Date",
-                value: new DateTime(2022, 8, 7, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6874));
+                value: new DateTime(2022, 8, 11, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2975));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6876));
+                value: new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2977));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6879));
+                value: new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2980));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6881));
+                value: new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2982));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "Date",
-                value: new DateTime(2022, 8, 8, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6884));
+                value: new DateTime(2022, 8, 12, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2984));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 9,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6886));
+                value: new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2986));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 10,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6888));
+                value: new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2989));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 11,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6891));
+                value: new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2991));
 
             migrationBuilder.UpdateData(
                 table: "MovieProgram",
                 keyColumn: "Id",
                 keyValue: 12,
                 column: "Date",
-                value: new DateTime(2022, 8, 9, 17, 28, 7, 435, DateTimeKind.Local).AddTicks(6893));
-
-            migrationBuilder.UpdateData(
-                table: "Snack",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Image",
-                value: "https://images.unsplash.com/photo-1623179007436-1d366e78ba68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+                value: new DateTime(2022, 8, 13, 23, 0, 6, 938, DateTimeKind.Local).AddTicks(2993));
         }
     }
 }
