@@ -3,6 +3,7 @@
 ## Summary
 
 A demo cinema web app where customers can see the latest Movie Programs and make a reservation. 
+Users will not be part of the prototype at this moment.
 
 ## Features
 
