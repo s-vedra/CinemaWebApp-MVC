@@ -57,7 +57,7 @@ namespace CinemaWebApp.DataAccess
             },
             new Movie("Minions: The Rise Of Gru", "Adventure, Comedy", 87, new DateTime(2022, 7, 1), "https://m.media-amazon.com/images/M/MV5BZDQyODUwM2MtNzA0YS00ZjdmLTgzMjItZWRjN2YyYWE5ZTNjXkEyXkFqcGdeQXVyMTI2MzY1MjM1._V1_.jpg")
             {
-                Description = "n the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- " +
+                Description = "In the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- " +
                 "the legendary fighter Wild Knuckles. When the interview turns disastrous, Gru and his Minions go on the run with the Vicious 6 hot on their tails. " +
                 "Luckily, he finds an unlikely source for guidance -- Wild Knuckles himself -- and soon discovers that even bad guys need a little help from their friends.",
                 Id = 5
